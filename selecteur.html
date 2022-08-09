@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecteur CSS</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* Selecteurs de type */
+
+        div {
+            border: 1px solid red;
+        }
+        p {
+            border: 3px solid blue;
+        }
+
+
+        /* Selecteur d'ID */
+
+        #mon-div {
+            background-color: yellow;
+            border: 15px dotted green;
+        }
+        #mon-paragraphe {
+            color:aqua;
+        }
+
+
+        /* Selecteur de classe */
+
+        .ma-classe {
+            padding: 15px;
+            background-color: coral;
+            color: bisque;
+        }
+
+
+        /* selecteur d'attribut */
+
+        [lang=zxx] {
+            background-color: red;
+        }
+        [lang] {
+            color: yellow;
+        }
+        [data-test] {
+            background-color: aquamarine;
+        }
+        [class=ma-classe] {
+            padding: 50px;
+        }
+
+
+
+        header,
+        main,
+        footer,
+        .ma-classe,
+        [data-test] {
+            color: black;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Les selecteurs CSS</h1>
+
+    <h2>Les selecteurs de type</h2>
+
+    <div>ceci est une div</div>
+    <p>ceci est un paragraphe</p>
+
+    <hr>
+
+
+    <h2>Les selecteurs d'ID</h2>
+
+    <div id="mon-div">ceci est une div</div>
+    <p id="mon-paragraphe">ceci est un paragraphe</p>
+
+    
+    <hr>
+
+    <h2>Les selecteurs de classe</h2>
+
+    <div class="ma-classe">ceci est une div</div>
+    <p class="ma-classe">ceci est un paragraphe</p>
+
+    <hr>
+
+    <h2>Les selecteurs d'attribut</h2>
+
+    <div lang="zxx">ceci est une div</div>
+    <p lang="fr" data-test>ceci est un paragraphe</p>
+
+
+
+    <header>Header</header>
+    <main>Main</main>
+    <footer>Footer</footer>
+</body>
+</html>
