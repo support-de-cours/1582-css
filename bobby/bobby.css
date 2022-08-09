@@ -1,0 +1,247 @@
+/* Personalisation du titre */
+/* Bobby kiff Stranger Things ... Il veut un titre à la stranger things*/
+
+/* Reset du body */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+
+/* Bobby se trouve dans l'UpSideDown ... c'est flippant */
+html, body {
+    background: rgb(24,59,106);
+    background: -moz-linear-gradient(180deg, rgba(24,59,106,1) 0%, rgba(66,26,5,1) 18%, rgba(1,9,17,1) 37%, rgba(1,18,47,1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(24,59,106,1) 0%, rgba(66,26,5,1) 18%, rgba(1,9,17,1) 37%, rgba(1,18,47,1) 100%);
+    background: linear-gradient(180deg, rgba(24,59,106,1) 0%, rgba(66,26,5,1) 18%, rgba(1,9,17,1) 37%, rgba(1,18,47,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#183b6a",endColorstr="#01122f",GradientType=1);
+}
+
+
+/* Import de la font */
+@font-face {
+    font-family: "StrangerThings";
+    src: url(./OPTIBrianJamesBoldCond.otf)
+}
+
+h1, h1::selection {
+    /* On utilise la font StrangerThings */
+    font-family: "StrangerThings";
+
+    /* Centrer le titre */
+    text-align: center;
+
+    /* Changer la couleur du texte */
+    color: rgb(200, 2, 2);
+    background-color: transparent;
+
+
+    /* Changer la taille du texte */
+    font-size: 4rem;
+
+    /* Ajout d'une ombre sur le texte */
+    text-shadow: 0 0 15px #970202;
+
+    /* Correction des marges */
+    margin: 0 0 3rem 0;
+
+    /* Rendre le texte transparent, puis applique un contour */
+    -webkit-text-stroke: 2px rgb(220, 0, 0);
+    -webkit-text-fill-color: transparent;
+}
+/* h1::selection {
+    background-color: transparent;
+} */
+
+
+/* La maison de bobby est un carré de 500px par 500px */
+.bobbys_house {
+    /* Les dimensions */
+    height: 500px;
+    width: 500px;
+
+    /* Affiche les bordures */
+    /* Defini la largeur de la bordure */
+    border-width: 10px;
+    /* Defnini le type/style de la bordure */
+    border-style: solid;
+    /* Defini la couleur des bordures */
+    /* 
+    border-top-color: cyan;
+    border-right-color: pink;
+    border-bottom-color: yellow;
+    border-left-color: greenyellow; 
+    */
+    border-color: cyan pink yellow greenyellow;
+
+    /* Centrer la maison de bobby */
+    /* Center un element par rapport à son parent */
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Appliquer le motif en arriere plan */
+    background-image: url(./wall.jpg);
+    /* background-image: url(https://cdn.shopify.com/s/files/1/0433/1952/5529/products/62396POPTV-STS4-POP5_GLAM-WEB_130x.png?v=1651163379); */
+    /* background-image: url(https://peakvisor.com/img/news/matterhorn-footer.jpg); */
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    /* background-size: cover; */
+
+    /* Centrer le contenu avec flex */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+    /* La definition de la position "relative" de la maison
+    va permettre a .bobby d'etre placer en position absolue par la suite */
+    position: relative;
+}
+
+.bobby {
+    /* les dimensions */
+    height: 200px;
+    width: 200px;
+
+    /* La couleur de bobby */
+    background-color: rgb(74, 157, 7);
+
+    /* Positionnement de façon absolue par rapport à sa maison */
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+
+    /* Correction des marges externes */
+    margin-top: -100px;
+    margin-left: -100px;
+
+    /* Bobby est tout rond */
+    border-radius: 50%;
+}
+
+/* Nez de bobby */
+.bobby .nose {
+
+    /* Dimensions */
+    width: 0px;
+    height: 0px;
+
+    /* background-color: yellow; */
+
+    /* Centrer le nez dans la largeur */
+    position: absolute;
+    /* left: 50%; */
+    left: 50%;
+    /* Position du nez par rapport au bas du .bobby */
+    bottom: 33%;
+
+    margin-left: -15px;
+    margin-bottom: 0px;
+
+    /* Contour du nez */
+    border-width: 15px;
+    border-style: solid;
+    border-color: rgb(4, 106, 6);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+}
+
+/* Creation des yeux */
+.bobby .nose::before, 
+.bobby .nose::after {
+    content: "o";
+    width: 10px;
+    height: 10px;
+    background-color: aqua;
+    position: absolute;
+    top: -40px;
+    border-radius: 50%;
+    border: 5px solid #e7e7e7;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all .3s;
+}
+.bobby .nose::before {
+    left: -40px;
+}
+.bobby .nose::after {
+    right: -40px;
+}
+
+/* Bobby nous fait un clin d'oeil  lorsque le curseur de la souris passe sur son visage */
+.bobby:hover {
+    cursor: pointer;
+}
+
+.bobby:hover .nose::after {
+    content: "";
+    height: 0px;
+    border-width: 1px 5px;
+    top: -30px;
+}
+
+/* Bobby sous l'emprise de Vecna */
+/* 
+On cible .bobby, element descendant de .bobbys_house,
+.bobbys_house est un element adjacent de input#vecna.
+
+Les propriété CSS s'applique sur .bobby lorsque input#vecna est coché (:checked)
+*/
+input#vecna:checked + .bobbys_house .bobby {
+    background-color: rgb(153, 179, 166);
+}
+input#vecna:checked + .bobbys_house .bobby .nose::before,
+input#vecna:checked + .bobbys_house .bobby .nose::after
+{
+    color: #afafaf;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-width: 1px;
+    top: -50px;
+    height: 5px;
+    transition: all .3s;
+}
+input#vecna:checked + .bobbys_house .bobby .nose::before
+{
+    top: -50px;
+    left: -35px;
+}
+input#vecna:checked + .bobbys_house .bobby .nose::after
+{
+    top: -45px;
+    right: -30px;
+}
+
+/* Gestion de la guirlande */
+.garland {
+    border-top: 2px solid black;
+    margin-top: 30px;
+    margin-right: 15px;
+    margin-left: 15px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.garland .lamp {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 0);
+    -webkit-box-shadow: 0px 0px 20px 15px rgba(255, 255, 0,0.5); 
+    box-shadow: 0px 0px 20px 15px rgba(255, 255, 0,0.5);
+}
+.garland .lamp:nth-child(3n+2) {
+    background-color: rgb(236, 88, 8);
+    -webkit-box-shadow: 0px 0px 20px 15px rgba(236, 88, 8 ,0.5); 
+    box-shadow: 0px 0px 20px 15px rgba(236, 88, 8 ,0.5);
+}
+.garland .lamp:nth-child(3n) {
+    background-color: rgb(9, 203, 225);
+    -webkit-box-shadow: 0px 0px 20px 15px rgba(9, 203, 225 ,0.5); 
+    box-shadow: 0px 0px 20px 15px rgba(9, 203, 225 ,0.5);
+}
